@@ -1,5 +1,5 @@
 [README.md](https://github.com/user-attachments/files/32627676/README.md)
-[README.md](https://github.com/user-attachments/files/32625575/README.md)
+
 <h1 align="center">SympResHost</h1>
 <p align="center"><b>Bring your VST / AU piano to life — and to realism.</b></p>
 
