@@ -1,0 +1,20 @@
+SympResHost — End User License Agreement (freeware)
+
+Copyright (c) 2026 Olivier Frappier. All rights reserved.
+
+1. Licence. You may download, install and use SympResHost free of charge, for personal
+   and commercial music production, on any number of computers you own.
+2. Restrictions. You may not sell, rent or sublicense SympResHost, redistribute the
+   installer outside of this repository without permission, or reverse engineer,
+   decompile or modify the software, except where the law expressly allows it.
+3. Ownership. SympResHost is licensed, not sold. The author keeps all rights, title and
+   interest in the software. The source code is not public.
+4. Third-party products. SympResHost hosts third-party plug-ins. Their use remains subject
+   to their own licences. Product names are trademarks of their respective owners;
+   SympResHost is not affiliated with them.
+5. No warranty. The software is provided "as is", without warranty of any kind, express
+   or implied, including fitness for a particular purpose. Opinions about sound quality
+   are subjective and not contractual.
+6. Limitation of liability. In no event shall the author be liable for any damages
+   arising from the use of, or inability to use, the software.
+7. Donations. Donations are voluntary, give no additional rights and are non-refundable.
