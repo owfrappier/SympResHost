@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/32627723/README.md)
+[README.md](https://github.com/user-attachments/files/32628987/README.md)
 <h1 align="center">SympResHost</h1>
 <p align="center"><b>Bring your VST / AU piano to life — and to realism.</b></p>
 
@@ -129,13 +129,21 @@ and compare with the `.sha256` file of the release.
 
 ## Setting up your piano (important)
 
-SympResHost provides the resonance and the sustain behaviour itself. To avoid doubling
-them, **in the hosted piano**:
+SympResHost provides the resonance and the sustain behaviour itself, and it listens to
+the **dry** sound of your piano to drive the strings. So, **in the hosted piano**:
 
 - **turn off** every *sympathetic resonance*, *sustain resonance*, *pedal resonance* or
   *sustain samples* option;
-- **keep** the *half-pedal* and *pedal catch* related options if your piano has them;
-- also turn off the piano's own compression and reverb (SympResHost has its own, optional).
+- **turn off all reverb, effects and compression** (convolution rooms, ambience, EQ /
+  "tone" effects, limiters, stereo wideners…). Otherwise the resonating strings would be
+  fed with the room and the effects instead of the strings, and the calibration capture
+  would measure them too;
+- **keep** the *half-pedal* and *pedal catch* related options if your piano has them.
+
+Need a room or some compression? Use **SympResHost's own Piano Comp and Reverb**
+instead: they are placed *after* the resonance engine, so the resonance stays clean and
+the whole instrument goes through the same room. Any other effect can of course be
+inserted after SympResHost in your DAW.
 
 ### Tested pianos
 
@@ -148,6 +156,9 @@ them, **in the hosted piano**:
 
 Other VSL pianos: try **Force Sustain Samples Off** if the pedal still triggers the
 library's sustain samples.
+
+**Golden rule:** in the hosted piano, sustain resonance, sympathetic resonance, reverb,
+effects and compression all **off**; half-pedal options **on**.
 
 ## Enjoying SympResHost?
 
