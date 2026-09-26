@@ -171,20 +171,67 @@ instead: they are placed *after* the resonance engine, so the resonance stays cl
 the whole instrument goes through the same room. Any other effect can of course be
 inserted after SympResHost in your DAW.
 
+### Force Sustain Samples Off — mainly for VSL pianos
+
+**What are "sustain samples"?** Many sampled pianos contain two sets of recordings of
+every note: one played with the pedal **up**, and one played with the pedal **down**.
+The pedal-down recordings include the sympathetic resonance of the whole instrument,
+*frozen at the moment of the recording*: all the strings ringing freely, whatever you
+are actually playing.
+
+**Why is that a problem with SympResHost?** SympResHost builds this resonance itself,
+live, from the strings that are really free at each instant: pedal, half-pedal,
+repedalling, held keys, sostenuto. If the piano also plays its pedal-down samples, the
+resonance is there twice, and the frozen one does not follow your pedalling.
+
+**The normal solution:** turn off the sustain samples (or "pedal resonance") in your
+piano's own interface. Most pianos offer this option — then you do not need anything
+else, and **Force Sustain Samples Off must be unchecked**.
+
+**The VSL case:** the VSL Synchron pianos, in their current versions, do not let you
+turn off their pedal-down samples. **Force Sustain Samples Off** solves this without
+taking the pedal away from the piano:
+
+1. When you play a note with the pedal down, SympResHost sends the piano a pedal-up
+   value for an instant, exactly at the note.
+2. The piano starts the note with its **pedal-up** sample (dry, no frozen resonance).
+3. The real pedal value is sent back immediately after, so the piano keeps controlling
+   its dampers, half-pedalling, repedalling and releases as usual.
+
+The resonance you hear is then only SympResHost's, following your playing.
+
+**Settings:**
+- The pedal-up value sent at the note depends on **Half Pedal Damping Start**: set the
+  Half Pedal values to match your piano (defaults match the VSL Steinway D-274).
+- Works with **AU and VST3**. In VST3 the pedal reaches the piano as a parameter, so
+  SympResHost splits the piano's processing at the note to make sure it is seen; this is
+  automatic. **AU Split** applies the same method to AU pianos (off by default, not
+  needed for the VSL D-274). **Split Length** sets how long the pedal-up value lasts
+  (default 16 samples, 0.4 ms).
+- Tested with the **VSL Synchron Steinway D-274**.
+
+> **Important — all other pianos: uncheck Force Sustain Samples Off.**
+> The option is checked by default because it is needed for the VSL pianos. With any
+> other piano (Ivory, Kontakt libraries, Garritan, Pianoteq…), **uncheck it** and turn
+> off the sustain samples / pedal resonance in the piano itself. Left on with a piano
+> that does not need it, it can make some notes start damped or sound uneven from one
+> register to another.
+
 ### Tested pianos
 
 | Piano | Status | Notes |
 |---|---|---|
 | **VSL Synchron Steinway D-274** | Reference | Default settings are tuned on it. Enable **Force Sustain Samples Off** in SympResHost so VSL does not play its own sustain samples. |
-| **Ivory 3** (Synthogy) | Works very well | In the Ivory preset, turn off *Sustain* and *Sympathetic Resonance*. To our ears the resonance and sustain even sound better than Ivory's built-in ones — a subjective opinion, not a promise. |
-| **Kontakt pianos** | Should work | Turn off the sustain / sympathetic resonance options of the instrument. |
+| **Ivory 3** (Synthogy) | Works very well | In the Ivory preset, turn off *Sustain* and *Sympathetic Resonance*; **uncheck Force Sustain Samples Off** in SympResHost. To our ears the resonance and sustain even sound better than Ivory's built-in ones — a subjective opinion, not a promise. |
+| **Kontakt pianos** | Should work | Turn off the sustain / sympathetic resonance options of the instrument; **uncheck Force Sustain Samples Off**. |
 | **VSL Synchron CFX / Imperial** | Possibly incompatible | Not tested yet — feedback welcome. |
 
 Other VSL pianos: try **Force Sustain Samples Off** if the pedal still triggers the
 library's sustain samples.
 
 **Golden rule:** in the hosted piano, sustain resonance, sympathetic resonance, reverb,
-effects and compression all **off**; half-pedal options **on**.
+effects and compression all **off**; half-pedal options **on**. In SympResHost,
+**Force Sustain Samples Off only for VSL pianos**.
 
 ## Enjoying SympResHost?
 
