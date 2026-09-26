@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/32628987/README.md)
 <h1 align="center">SympResHost</h1>
 <p align="center"><b>Bring your VST / AU piano to life — and to realism.</b></p>
 
@@ -50,7 +49,9 @@ Steinway D-274 is included and ready to use.
 - **Pedal catch.** Press the pedal just *after* the notes and the strings still sounding
   feed the freed strings — gently, as on a real instrument.
 - **Natural string release.** When a damper falls, the partials of the string die away
-  progressively instead of being cut.
+  progressively instead of being cut — with the high harmonics, the duplex scale, the
+  undamped treble strings and the slow beating of the bass unisons. It can replace weak or
+  missing release samples, or blend with the ones your piano already has.
 - **Honest colour.** Measured inharmonicity, per-string decay times, the colour of strings
   driven through the bridge (not by the hammer), and an optional microphone-pair stereo
   image.
@@ -85,6 +86,31 @@ SympResHost **re-creates this release**: the string's own partials, taken from t
 sound of your piano, die away gently as the damper settles, with a lighter or firmer touch
 depending on how you release the key or the pedal. With half-pedalling, the dampers resting
 lightly on the strings keep damping them softly instead of stopping them.
+
+### Replace, complete or blend your piano's release samples
+
+Release samples vary a lot from one virtual piano to another: some are rich, some are
+weak, some are missing altogether. The release re-simulated by SympResHost adapts to all
+three cases:
+
+- **Missing or very weak release samples** (e.g. Ivory 3, or a release you turned off):
+  raise **Release Noise** — SympResHost then provides the whole release on its own.
+- **Average release samples**: keep a low setting (the default is 3 %) — the simulation
+  blends with the samples and adds what they lack: brighter high harmonics, the shimmer of
+  the duplex scale, and a longer, beating decay in the bass.
+- **Rich release samples**: turn it down further or off, and let the samples speak.
+
+What the re-simulated release contains:
+
+- **Up to 24 partials** of the string, taken from the real sound of your piano, continue
+  and die away as the damper settles (**Fast** makes the damper contact more immediate).
+- **Ring**: part of the energy passes through the bridge into the **undamped treble
+  strings** and the **duplex scale**, which keep shimmering briefly, as on a real grand.
+- **In the bass**, the release lasts longer and the strings of a unison **beat** slightly,
+  because they are never damped at exactly the same instant.
+- **Release Weights** balances the colour of the release: 100 % keeps the partials as
+  recorded; lower values bring up the high harmonics without changing the overall level
+  (default 50 %). It works like **Mode Weights** does for the resonance.
 
 ### Your release gesture counts
 
